@@ -16,7 +16,7 @@ jobs:
       - name: Build Docker Image
         run: docker build -t events-api:latest .
       - name: Run Docker Container
-        run: docker run --rm -p 5000:5000 events-api:latest &
+        run: docker run --rm -p 5000:5000 --name events-api-container events-api:latest &
       - name: Wait for the app to start
         run: sleep 3
       - name: HTTP Check
@@ -29,3 +29,6 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run tests
         run: pytest -v
+      - name: Cleanup
+        if: always()
+        run: docker container stop events-api-container
