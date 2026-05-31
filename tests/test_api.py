@@ -68,7 +68,7 @@ def test_rsvp_to_public_event_succeeds_without_auth():
 
     # RSVP to the event
     response = requests.post(f"{BASE_URL}/api/rsvps/event/{event_id}", json={"attending": True})
-    assert response.status_code == 201
+    assert response.status_code == 999
     assert response.json()["event_id"] == event_id
 
 # **************** Error / Edge‑Case Tests ************************
