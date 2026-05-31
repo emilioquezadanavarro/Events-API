@@ -1,0 +1,12 @@
+#Virtual enviroments
+.venv
+
+# Databases
+/instance
+
+#Git metada
+.git/
+
+# Caches and compiled Python files
+**/__pycache__
+*.pyc
